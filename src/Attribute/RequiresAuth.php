@@ -16,13 +16,13 @@ use Attribute;
  * or more roles (checked via the framework's authorization gate).
  *
  * Example:
- * <code>
+ * ```php
  * #[RequiresAuth]
  * public function dashboardAction(): string { ... }
  *
  * #[RequiresAuth(roles: ['admin'])]
  * public function adminAction(): string { ... }
- * </code>
+ * ```
  */
 #[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS)]
 class RequiresAuth

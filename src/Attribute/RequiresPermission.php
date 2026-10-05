@@ -15,10 +15,10 @@ use Attribute;
  * is rejected with a 403.
  *
  * Example:
- * <code>
+ * ```php
  * #[RequiresPermission('billing.manage')]
  * public function invoicesAction(): string { ... }
- * </code>
+ * ```
  */
 #[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS)]
 class RequiresPermission

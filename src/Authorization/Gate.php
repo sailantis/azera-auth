@@ -16,7 +16,7 @@ use Closure;
  * so models carrying a static permission list still work.
  *
  * Example:
- * <code>
+ * ```php
  * $gate = new Gate();
  * $gate->define('billing.manage', fn($user) => $user->hasRole('admin'));
  * $gate->define('ticket.reply', fn($user, $ticket) => $ticket->assignee_id === $user->id);
@@ -24,7 +24,7 @@ use Closure;
  * if (!$gate->allows('billing.manage', $user)) {
  *     throw new AuthorizationException();
  * }
- * </code>
+ * ```
  */
 class Gate
 {

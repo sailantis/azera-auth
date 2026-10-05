@@ -15,11 +15,11 @@ namespace Azera\Auth\Event;
  *
  * A listener for auth events can be registered with the dispatcher:
  *
- * <code>
+ * ```php
  * $dispatcher->listen(Login::class, function (Login $event) use ($ctx) {
  *     $ctx->logger()->info('User logged in', ['id' => $event->userId]);
  * });
- * </code>
+ * ```
  */
 abstract class AuthEvent
 {

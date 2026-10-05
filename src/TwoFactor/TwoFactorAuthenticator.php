@@ -28,14 +28,14 @@ use function time;
  * it is a pure crypto/rendering helper.
  *
  * Example:
- * <code>
+ * ```php
  * $tfa = new TwoFactorAuthenticator();
  * $secret = $tfa->generateSecret();
  * $uri    = $tfa->provisioningUri('user@example.com', 'Sailantis', $secret);
  * $qrSvg  = $tfa->qrSvg($uri, 200);
  * // ... later, on activation:
  * if ($tfa->verify($code, $secret)) { /* mark 2FA active *\/ }
- * </code>
+ * ```
  */
 class TwoFactorAuthenticator
 {

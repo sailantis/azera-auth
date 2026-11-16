@@ -16,17 +16,8 @@ The framework ships authentication **contracts** (`Azera\Security\AuthManagerInt
 
 ## Installation
 
-Add the path repository and require the package in your app's `composer.json`:
-
-```json
-{
-    "repositories": [
-        { "type": "path", "url": "../azera-auth" }
-    ],
-    "require": {
-        "sailantis/azera-auth": "dev-main"
-    }
-}
+```bash
+composer require sailantis/azera-auth
 ```
 
 Optional features pull their dependencies via Composer `suggest`:

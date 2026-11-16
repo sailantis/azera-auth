@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aaa7ac257c2cabded0a2b40feecb605c",
+    "content-hash": "3b1a3e4205c90f6057bc95d9de887865",
     "packages": [
         {
             "name": "psr/event-dispatcher",
@@ -58,16 +58,16 @@
         },
         {
             "name": "psr/log",
-            "version": "3.0.0",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001"
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe5ea303b0887d5caefd3d431c3e61ad47037001",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
                 "shasum": ""
             },
             "require": {
@@ -102,9 +102,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/3.0.0"
+                "source": "https://github.com/php-fig/log/tree/3.0.2"
             },
-            "time": "2021-07-14T16:46:02+00:00"
+            "time": "2024-09-11T13:17:53+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -163,24 +163,34 @@
             "dist": {
                 "type": "path",
                 "url": "../azera-framework",
-                "reference": "90fadb2f411f7fa64da274a7c175c75ad292922b"
+                "reference": "424547e426040521253b34ca19f12a17aa94e4cb"
             },
             "require": {
                 "ext-mbstring": "*",
                 "ext-pdo": "*",
-                "php": ">=8.1",
-                "psr/event-dispatcher": "1.0",
-                "psr/log": "3.0",
-                "psr/simple-cache": "3.0",
-                "sailantis/clarity-engine": "dev-main"
+                "php": ">=8.2",
+                "psr/event-dispatcher": "^1.0",
+                "psr/log": "^3.0",
+                "psr/simple-cache": "^3.0",
+                "sailantis/clarity-engine": "dev-main || ^0.4"
             },
             "require-dev": {
                 "illuminate/view": "^10.49",
+                "latte/latte": "^3.1",
                 "league/plates": "^3.6",
+                "mongodb/mongodb": "^2.4",
                 "phpdocumentor/reflection-docblock": "^6.0",
                 "phpunit/phpunit": "^10.5",
+                "spiral/stempler-bridge": "^3.17",
                 "twig/twig": "^3.8"
             },
+            "suggest": {
+                "ext-mongodb": "PHP driver for MongoDB document persistence (Azera\\Orm\\Storage\\MongoStore)",
+                "mongodb/mongodb": "Required for MongoDB document persistence (Azera\\Orm\\Storage\\MongoStore) — install together with the ext-mongodb PHP extension. Optional: only tests/MongoLiveTest.php needs the real package; all other Mongo tests run against an in-memory fake"
+            },
+            "bin": [
+                "bin/azera"
+            ],
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -195,12 +205,35 @@
             "scripts": {
                 "test": [
                     "phpunit"
+                ],
+                "bench:metadata-l2": [
+                    "php benchmarks/metadata-l2-cache.php"
                 ]
             },
             "license": [
                 "MIT"
             ],
+            "authors": [
+                {
+                    "name": "Sailantis"
+                }
+            ],
             "description": "A lightweight, fast PHP framework for building modern web and cli applications. Azera combines the best ideas from frameworks like Phalcon, CodeIgniter, Laravel and Twig into a minimal yet powerful toolkit.",
+            "homepage": "https://github.com/sailantis/azera-framework",
+            "keywords": [
+                "cli",
+                "framework",
+                "mvc",
+                "orm",
+                "php",
+                "php-framework",
+                "query-builder",
+                "router"
+            ],
+            "support": {
+                "issues": "https://github.com/sailantis/azera-framework/issues",
+                "source": "https://github.com/sailantis/azera-framework"
+            },
             "transport-options": {
                 "relative": true
             }
@@ -211,15 +244,19 @@
             "dist": {
                 "type": "path",
                 "url": "../clarity-engine",
-                "reference": "3be27b535eedf088c2b70adabe0bcccb00f304ec"
+                "reference": "2caccda5849925004580c1d94677a9a27a7e28ca"
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": ">=8.1"
+                "php": ">=8.2"
             },
             "require-dev": {
                 "phpdocumentor/reflection-docblock": "^6.0",
                 "phpunit/phpunit": "^9.6"
+            },
+            "suggest": {
+                "ext-intl": "Locale-aware formatting via IntlFormatModule (format_number, format_currency, format_date, ...)",
+                "ext-redis": "Caching translation lookups via RedisCachingLoader"
             },
             "type": "library",
             "autoload": {
@@ -240,7 +277,25 @@
             "license": [
                 "MIT"
             ],
+            "authors": [
+                {
+                    "name": "Sailantis"
+                }
+            ],
             "description": "A fast and powerful Template engine for PHP inspired by Twig.",
+            "homepage": "https://github.com/sailantis/clarity-engine",
+            "keywords": [
+                "compiler",
+                "template",
+                "template-engine",
+                "templating",
+                "twig",
+                "view"
+            ],
+            "support": {
+                "issues": "https://github.com/sailantis/clarity-engine/issues",
+                "source": "https://github.com/sailantis/clarity-engine"
+            },
             "transport-options": {
                 "relative": true
             }
@@ -309,16 +364,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.8.0",
+            "version": "v5.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "044a6a392ff8ad0d61f14370a5fbbd0a0107152f"
+                "reference": "9e33da9553fe7786f0962b35f4e4ecf01be89def"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/044a6a392ff8ad0d61f14370a5fbbd0a0107152f",
-                "reference": "044a6a392ff8ad0d61f14370a5fbbd0a0107152f",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/9e33da9553fe7786f0962b35f4e4ecf01be89def",
+                "reference": "9e33da9553fe7786f0962b35f4e4ecf01be89def",
                 "shasum": ""
             },
             "require": {
@@ -360,9 +415,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.8.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.9.0"
             },
-            "time": "2026-07-04T14:30:18+00:00"
+            "time": "2026-09-13T18:51:52+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -805,16 +860,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.64",
+            "version": "10.5.67",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "0e8c1d19cea35ad97d4887f363d07c78e30fbf06"
+                "reference": "1f3e67dd433817bddfc64afab63977cc4b011374"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0e8c1d19cea35ad97d4887f363d07c78e30fbf06",
-                "reference": "0e8c1d19cea35ad97d4887f363d07c78e30fbf06",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1f3e67dd433817bddfc64afab63977cc4b011374",
+                "reference": "1f3e67dd433817bddfc64afab63977cc4b011374",
                 "shasum": ""
             },
             "require": {
@@ -824,7 +879,7 @@
                 "ext-libxml": "*",
                 "ext-mbstring": "*",
                 "ext-xmlwriter": "*",
-                "myclabs/deep-copy": "^1.13.4",
+                "myclabs/deep-copy": "^1.14.0",
                 "phar-io/manifest": "^2.0.4",
                 "phar-io/version": "^3.2.1",
                 "php": ">=8.1",
@@ -841,7 +896,7 @@
                 "sebastian/exporter": "^5.1.4",
                 "sebastian/global-state": "^6.0.2",
                 "sebastian/object-enumerator": "^5.0.0",
-                "sebastian/recursion-context": "^5.0.1",
+                "sebastian/recursion-context": "^5.0.2",
                 "sebastian/type": "^4.0.0",
                 "sebastian/version": "^4.0.1"
             },
@@ -886,7 +941,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.64"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.67"
             },
             "funding": [
                 {
@@ -894,7 +949,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-07-06T14:50:35+00:00"
+            "time": "2026-11-13T11:07:03+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -1908,7 +1963,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.1"
+        "php": ">=8.2"
     },
     "platform-dev": {},
     "plugin-api-version": "2.9.0"
